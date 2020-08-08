@@ -1,0 +1,57 @@
+#wrapper {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}
+
+h2 {
+    margin: 0;
+    padding: 1rem;
+}
+
+#food-list,
+#food-ordered {
+    background-color: #cccc;
+    max-width: 350px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+p {
+    margin: 0;
+}
+
+.list-cont-md {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-cont-md li {
+    padding: 1rem;
+}
+
+.list-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-add {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    padding-block-start: .5rem;
+    padding-block-end: .5rem;
+}
+
+.total-amount {
+    text-align: center;
+}
