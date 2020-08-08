@@ -53,7 +53,7 @@ const showFoods = foods.map(food => {
 });
 console.log(showFoods);
 // add it to the DOM
-list.innerHTML = showFoods;
+list.innerHTML = showFoods.join('');
 
 // filter the food list according to its category when the checkbox is checkbox
 const checkbox = document.querySelector('.spicy');
