@@ -61,3 +61,41 @@ p {
 .total-amount {
     text-align: center;
 }
+
+.confirm-btn {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    padding-block-start: .5rem;
+    padding-block-end: .5rem;
+    cursor: pointer;
+}
+
+.btn-div {
+    text-align: start;
+    margin: 1rem;
+}
+
+.outer-modal {
+    display: grid;
+    place-items: center center;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    background-color: aqua;
+    pointer-events: none;
+    display: none;
+}
+
+.outer-modal.open {
+    max-width: 500px;
+    max-width: 400px;
+    pointer-events: all;
+    display: block;
+}
+
+.inner-modal {
+    background-color: aqua;
+    border-radius: .5rem;
+    min-width: 300px;
+    min-height: 300px;
+}
