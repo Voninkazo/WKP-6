@@ -41,12 +41,41 @@ const foods = [{
 const innerModal = document.querySelector('.inner-modal');
 const outerModal = document.querySelector('.outer-modal');
 
+// filter the food list according to its category when the checkbox is checkbox
+const list = document.querySelector('.list-container');
+const showFoods = foods.map(food => {
+    return `<ul class="list-cont-md">
+              <li>${food.title}</li>
+              <li>${food.price}</li>
+              <li><button class="btn-add">Add</button></li>
+            </ul>`;
+});
+console.log(showFoods);
+list.innerHTML = showFoods;
+
+const checkbox = document.querySelector('.spicy');
+const handleChange = (checkbox) => {
+    if (checkbox.checked === true) {
+        const spicyFood = foods.filter(hotFood => {
+            return `<ul class="list-cont-md">
+            <li>${hotFood.spicy === true}</li>
+            <li>${hotFood.price}</li>
+            <li><button class="btn-add">Add</button></li>
+          </ul>
+          `;
+        })
+        console.log(spicyFood);
+        list.innerHTML = spicyFood;
+    } else if (checkbox.checked === false) {
+        list.style.display = 'none';
+    }
+}
+
 // open modal
 const showModal = () => {
         // add class open
         outerModal.classList.add('open');
         // showing the final total
-
     }
     // listen for the confirm btn
 window.addEventListener('click', event => {
