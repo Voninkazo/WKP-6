@@ -47,7 +47,7 @@ const showFoods = foods.map(food => {
     // return the html
     return `<ul class="list-cont-md">
               <li>${food.title}</li>
-              <li>${food.price}</li>
+              <li>${food.price}Ar</li>
               <li><button class="btn-add">Add</button></li>
             </ul>`;
 });
@@ -56,24 +56,43 @@ console.log(showFoods);
 list.innerHTML = showFoods.join('');
 
 // filter the food list according to its category when the checkbox is checkbox
-const checkbox = document.querySelector('.spicy');
+// this is the spicy list
+const checkbox = document.querySelector('.spicy'); // the input checkbox
 const handleChange = (checkbox) => {
     if (checkbox.checked === true) {
-        const spicyFood = foods.filter(hotFood => {
-            if (hotFood.spicy === true) {
-                const myhmtl = `
+        const spicyFood = foods.filter(spicyF => spicyF.spicy === true); // filter the object first
+        const hotSpicy = spicyFood.map(hotFood => // map to generate all itmes
+                ` 
                     <ul class="list-cont-md">
-                      <li>${hotFood.title}
+                      <li>${hotFood.title}🔥
                       </li>
-                      <li>${hotFood.price}
+                      <li>${hotFood.price}Ar
                       <li><button class="btn-add">Add</button></li>
                     </ul>
-        `; // add it to the DOM
-                list.innerHTML = myhmtl;
-            }
-            return hotFood;
-        })
-        console.log(spicyFood);
+        `) // add it to the DOM
+        list.innerHTML = hotSpicy.join('');
+    } else if (checkbox.checked === false) {
+        list.innerHTML = showFoods.join('');
+    }
+}
+
+// this is for the vegeterian
+const checkbox2 = document.querySelector('.vegetarian');
+const handleChange2 = (checkbox) => {
+    if (checkbox.checked === true) {
+        const vaegetarianFood = foods.filter(vegetF => vegetF.vegetarian === true); // filter the array
+        const vegFood = vaegetarianFood.map(vgsFd => // map to generate all the items
+                `
+                    <ul class="list-cont-md">
+                      <li>${vgsFd.title}
+                      </li>
+                      <li>${vgsFd.price}Ar
+                      <li><button class="btn-add">Add</button></li>
+                    </ul>
+        `) // add it to the DOM
+        list.innerHTML = vegFood.join('');
+    } else if (checkbox.checked === false) {
+        list.innerHTML = showFoods.join('');
     }
 }
 
