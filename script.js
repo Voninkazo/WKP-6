@@ -80,8 +80,8 @@ const handleChange = (checkbox) => {
 const checkbox2 = document.querySelector('.vegetarian');
 const handleChange2 = (checkbox) => {
     if (checkbox.checked === true) {
-        const vaegetarianFood = foods.filter(vegetF => vegetF.vegetarian === true); // filter the array
-        const vegFood = vaegetarianFood.map(vgsFd => // map to generate all the items
+        const vegetarianFood = foods.filter(vegetF => vegetF.vegetarian === true); // filter the array
+        const vegFood = vegetarianFood.map(vgsFd => // map to generate all the items
                 `
                     <ul class="list-cont-md">
                       <li>${vgsFd.title}
@@ -95,6 +95,33 @@ const handleChange2 = (checkbox) => {
         list.innerHTML = showFoods.join('');
     }
 }
+
+// handle both checkboxes
+
+// const spicyBox = document.querySelector('.spicy');
+// const vegiBox = document.querySelector('.vegetarian');
+const allcheckboxes = document.querySelectorAll(' [type="checkbox"]');
+const spicyAndVegFood = () => {
+    if (checkbox.checked === true && checkbox2.checked === true) {
+        const hotVegiFood = foods.filter(food => food.spicy && food.vegetarian)
+        const finalFood = hotVegiFood.map(mixedTaste => `
+                    <ul class="list-cont-md" id ="${mixedTaste.id}">
+                      <li>${mixedTaste.title}
+                      </li>
+                      <li>${mixedTaste.price}Ar
+                      <li><button class="btn-add">Add</button></li>
+                    </ul>
+        `);
+        list.innerHTML = finalFood.join('');
+    }
+}
+
+// const inputTag = document.querySelector('input');
+// const handleCheckbox = (checkbox) => {
+//     if (checkbox.checked === true) {
+//         list.innerHTML = `${handleChange}${handleChange2}`;
+//     }
+// }
 
 // open modal
 const showModal = () => {
